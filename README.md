@@ -11,7 +11,6 @@ This software is able to access and modify the data of a table in a SQL database
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
 * [SQLite: Introduction](https://www.sqlitetutorial.net/)
 * [SQLite: tutorial](https://docs.python.org/3.8/library/sqlite3.html)
 * [SQLite: tutorialspoint](https://www.tutorialspoint.com/sqlite/sqlite_python.htm)
