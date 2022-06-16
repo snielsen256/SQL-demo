@@ -22,12 +22,12 @@ cursor = data.cursor()
 cursor.execute('''CREATE TABLE Employees (id, name, job_description)''')
 
 # insert data
-cursor.execute("INSERT INTO Employees VALUES (001, 'Jim', 'Mechanic')")
-cursor.execute("INSERT INTO Employees VALUES (002, 'Steve', 'Electrician')")
+cursor.execute("INSERT INTO Employees VALUES ('001', 'Jim', 'Mechanic')")
+cursor.execute("INSERT INTO Employees VALUES ('002', 'Steve', 'Electrician')")
 """
 
 """
-Define actions
+Define possible actions
 """
 
 # confirm action
@@ -40,7 +40,19 @@ def confirm():
 
 # insert data
 def insert():
-    print("Enter the ")
+
+    # gather data
+    print("Enter the data for each column:")
+    id = input("id: ")
+    name = input("name: ")
+    job_description = input("job_description: ")
+
+    # input data
+    cursor.execute(f"INSERT INTO Employees VALUES ('{id}', '{name}', '{job_description}')")
+    
+    #commit data
+    confirm()
+
 
 # modify data
 def modify():
@@ -52,7 +64,19 @@ def delete():
 
 # retrieve data
 def retrieve():
-    pass
+
+    # gather data
+    col = input("Which column would you like to search by?: ")
+    return_type = input("which column do you want to see?: ")
+    param = input("What would you like to search for?: ")
+
+    # search
+    return_data = cursor.execute(f"SELECT {return_type} FROM Employees WHERE {col}={param}")
+
+    # retrun data
+    print("This is what was found:")
+    print(return_data)
+
 
 
 
@@ -61,6 +85,7 @@ Start gathering input
 """
 
 while (True):
+    print("-----")
     print("The table 'Employees' has three columns: id, name, and job_description.")
     user_input = input("What would you like to do with the data? (options: insert, modify, delete, retrieve, exit program)")
 
