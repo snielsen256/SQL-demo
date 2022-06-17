@@ -50,17 +50,36 @@ def insert():
     # input data
     cursor.execute(f"INSERT INTO Employees VALUES ('{id}', '{name}', '{job_description}')")
     
-    #commit data
+    # commit data
     confirm()
 
 
 # modify data
 def modify():
-    pass
+    # gather data
+    id_original = input("Which entry would you like to modify? (Enter id): ")
+    value_original = input("What value you like to modify?: ")
+    value_new = input("What would you like to set it to?: ")
+
+    # apply 
+    
+    cursor.execute(f"UPDATE Employees SET {value_original}={value_new} WHERE id={id_original}")
+
+    # commit data
+    confirm()
+
+
 
 # delete data
 def delete():
-    pass
+    # gather data
+    id_row = input("Which entry would you like to delete? (Enter id): ")
+
+    # apply
+    cursor.execute(f"DELETE FROM Employees WHERE id='{id_row}'")
+
+    # commit data
+    confirm()
 
 # retrieve data
 def retrieve():
@@ -73,7 +92,7 @@ def retrieve():
     # search
     return_data = cursor.execute(f"SELECT {return_type} FROM Employees WHERE {col}={param}")
 
-    # retrun data
+    # return data
     print("This is what was found:")
     print(return_data)
 
@@ -87,7 +106,7 @@ Start gathering input
 while (True):
     print("-----")
     print("The table 'Employees' has three columns: id, name, and job_description.")
-    user_input = input("What would you like to do with the data? (options: insert, modify, delete, retrieve, exit program)")
+    user_input = input("What would you like to do with the data? (options: insert, modify, delete, retrieve, exit program): ")
 
     user_input_simple = user_input[0].lower()
 
