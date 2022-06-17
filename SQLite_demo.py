@@ -32,7 +32,7 @@ Define possible actions
 
 # confirm action
 def confirm():
-    user_input = input("Do you want to continue?")
+    user_input = input("Do you want to continue?: ")
 
     if (user_input[0].lower() == "y"):
         data.commit()
@@ -63,7 +63,7 @@ def modify():
 
     # apply 
     
-    cursor.execute(f"UPDATE Employees SET {value_original}={value_new} WHERE id={id_original}")
+    cursor.execute(f"UPDATE Employees SET '{value_original}'='{value_new}' WHERE id='{id_original}'")
 
     # commit data
     confirm()
@@ -85,16 +85,15 @@ def delete():
 def retrieve():
 
     # gather data
-    col = input("Which column would you like to search by?: ")
-    return_type = input("which column do you want to see?: ")
-    param = input("What would you like to search for?: ")
+    col = input("Which column would you like to search?: ")
+    param = input(f"What {col} are you looking for?: ")
 
     # search
-    return_data = cursor.execute(f"SELECT {return_type} FROM Employees WHERE {col}={param}")
+    cursor.execute(f"SELECT * FROM Employees WHERE {col}='{param}'")
 
     # return data
     print("This is what was found:")
-    print(return_data)
+    print(cursor.fetchall())
 
 
 
