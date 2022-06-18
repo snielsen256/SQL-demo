@@ -124,21 +124,3 @@ while (True):
 
 
 
-
-
-"""
-# retrieve data
-return_data = cursor.execute("SELECT name FROM Employees WHERE id=002")
-
-# commit changes
-data.commit()
-
-# print data
-print(*return_data)
-
-
-# close connection
-data.close
-"""
-
-

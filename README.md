@@ -1,8 +1,8 @@
 # Overview
 
-This software is able to access and modify the data of a table in a SQL database. The user inputs a string and a choice (such as retrieve or delete), and the software buils the query and send it to the SQL server.
+This software is able to access and modify the data of a table in a SQL database. The user inputs a string and a choice (such as retrieve or delete), and the software builds the query and send it to the SQL server.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/7CtMe8oKpfg)
 
 # Development Environment
 
